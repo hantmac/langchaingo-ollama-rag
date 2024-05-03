@@ -43,19 +43,7 @@ func getollamaEmbedder() *embeddings.EmbedderImpl {
 }
 
 func getOllamaQwen() *ollama.LLM {
-	// 创建一个新的ollama模型，模型名为"mistral"
-	llm, err := ollama.New(
-		ollama.WithModel("qwen:1.8b"),
-		ollama.WithServerURL(ollamaServer))
-	if err != nil {
-		logger.Fatal("创建ollama模型失败: %v", err)
-	}
-	return llm
-}
-
-// getOllamaLLM2 获取ollama模型
-func getOllamaLlama2() *ollama.LLM {
-	// 创建一个新的ollama模型，模型名为"llama2-chinese:13b"
+	// 创建一个新的ollama模型，模型名为"qwena:1.8b"
 	llm, err := ollama.New(
 		ollama.WithModel("qwen:1.8b"),
 		ollama.WithServerURL(ollamaServer))
@@ -145,17 +133,4 @@ func GetAnswer(ctx context.Context, llm llms.Model, docRetrieved []schema.Docume
 	}
 
 	return res, nil
-}
-
-// Translate 将文本翻译为中文
-func Translate(llm llms.Model, text string) (string, error) {
-	completion, err := llms.GenerateFromSinglePrompt(
-		context.TODO(),
-		llm,
-		"将如下这句话翻译为中文，只需要回复翻译后的内容，而不需要回复其他任何内容。需要翻译的英文内容是: \n"+text,
-		llms.WithTemperature(0.8))
-	if err != nil {
-		return "", err
-	}
-	return completion, nil
 }
