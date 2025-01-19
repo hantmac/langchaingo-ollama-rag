@@ -1,3 +1,5 @@
+[<img src="https://api.gitsponsors.com/api/badge/img?id=795130824" height="20">](https://api.gitsponsors.com/api/badge/link?p=H9OBR3Ex9c17MY0dU4Jiu7yYYYRLRj2YhmvqsFSO6LE4DxqYz7afUc045lQHZy97)
+
 # Ollama RAG
 Project for adding RAG to ollama models using :
 - [langchaingo](https://github.com/tmc/langchaingo)
